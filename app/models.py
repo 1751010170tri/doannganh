@@ -161,12 +161,15 @@ class Hoc(db.Model):
 
     hocsinh_id = Column(Integer, ForeignKey(HocSinh.id), primary_key=True)
     monhoc_id = Column(Integer, ForeignKey(MonHoc.id), primary_key=True)
-    ky1_15p = Column(Float, default=0)
-    ky1_1tiet = Column(Float, default=0)
-    ky1_final = Column(Float, default=0)
-    ky2_15p = Column(Float, default=0)
-    ky2_1tiet = Column(Float, default=0)
-    ky2_final = Column(Float, default=0)
+    diem15p_lan1 = Column(Float, default=0)
+    diem15p_lan2 = Column(Float, default=0)
+    diem15p_lan3 = Column(Float, default=0)
+    diem1tietlan1 = Column(Float, default=0)
+    diem1tiet_lan2 = Column(Float, default=0)
+    diem1tietlan3 = Column(Float, default=0)
+    diemcuoiky = Column(Float, default=0)
+    diemtb = Column(Float, default=0)
+
 
 
 
