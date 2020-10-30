@@ -1,0 +1,33 @@
+{% extends 'user/menu.html' %}
+{% block footer %}
+<p></p>
+    <div class="row">
+        <div class="col md-12">
+
+            <div class="jumbotron p-3">
+            <table id="example" class="table table-hover table-dark">
+
+                            <tr>
+
+                                <th>Lớp</th>
+                                <th>Sĩ Số</th>
+                            </tr>
+
+
+                           {% for t in lop %}
+                            <tr>
+                                <td>{{t.name}}</td>
+                                <td>{{t.siso}}</td>
+                                <td>
+                                    <a href="{{ url_for('show', id = t.id) }}" class="btn btn-warning btn-xs" >Hiện</a>
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+            </table>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

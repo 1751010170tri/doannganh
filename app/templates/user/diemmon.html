@@ -1,0 +1,60 @@
+{% extends 'user/menu.html' %}
+{% block footer %}
+<p></p>
+<div class="container">
+    <form action="" method="post">
+            <div class="form-group">
+                 <div class="form-group">
+                <label>Lớp</label>
+                <select class="form-control" name="lop_id">
+                    {% for cat in hocsinh %}
+                    <option value="{{ cat.id }}" >{{ cat.firstname }}{{ cat.lastname }}</option>
+                    {% endfor %}
+                </select>
+                </div>
+                <input type="submit" value="Tìm Kiếm" />
+            </div>
+            <p></p>
+        </form>
+    <div class="row">
+        <div class="col md-12">
+
+            <div class="jumbotron p-3">
+            <table id="example" class="table table-hover table-dark">
+
+                            <tr>
+
+                                <th>Họ</th>
+                                <th>Tên</th>
+                                <th>Điểm 15' kỳ 1</th>
+                                <th>Điểm 1 tiết kỳ 1</th>
+                                <th>Điểm cuối kỳ kỳ 1</th>
+                                <th>Điểm 15' kỳ 2</th>
+                                <th>Điểm 1 tiết kỳ 2</th>
+                                <th>Điểm cuối kỳ kỳ 2</th>
+                            </tr>
+
+
+                           {% for t in hocsinh %}
+                            <tr>
+                                <td>{{t.firstname}}</td>
+                                <td>{{t.lastname}}</td>
+                                {% for k in hoc %}
+                                <td>{{k.ky1_15p}}</td>
+                                <td>{{k.ky1_1tiet}}</td>
+                                <td>{{k.ky1_final}}</td>
+                                <td>{{k.ky2_15p}}</td>
+                                <td>{{k.ky2_1tiet}}</td>
+                                <td>{{k.ky2_final}}</td>
+                                {% endfor %}
+
+
+                            </tr>
+                            {% endfor %}
+            </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'user/menu.html' %}
+{% block footer %}
+<p></p>
+<div class="row">
+        <div class="col md-12">
+
+            <div class="jumbotron p-3">
+            <table id="example" class="table table-hover table-dark">
+
+                            <tr>
+
+                                <th></th>
+                            </tr>
+
+
+                           {% for t in lop %}
+                            <tr>
+                                <td>{{t.name}}</td>
+                                <td>{{t.siso}}</td>
+                                <td>
+                                    <a href="{{ url_for('show', id = t.id) }}" class="btn btn-warning btn-xs" >Hiện</a>
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+            </table>
+            </div>
+        </div>
+
+    </div>
+<body>
+<p>Tên Lớp : {{ lp.name }}</p>
+<p>Sĩ Số : {{ lp.siso }}</p>
+ <div class="row">
+        <div class="col md-12">
+
+            <div class="jumbotron p-3">
+                <table  class="table table-hover table-dark">
+
+                            <tr>
+
+                                <th>Họ Tên</th>
+                                <th>Giới Tính</th>
+                                <th>Năm Sinh</th>
+                                <th>Địa Chỉ</th>
+
+                            </tr>
+
+
+                           {% for hs in hocsinh %}
+                            <tr>
+                                {% if hs.lop_id == id_lop %}
+                                    <td>{{ hs.firstname }}{{hs.lastname}}</td>
+                                    <td>{{hs.gioitinh}}</td>
+                                    <td>{{hs.ngaysinh}}</td>
+                                    <td>{{hs.diachi}}</td>
+                                {% endif %}
+                            {% endfor %}
+                            </tr>
+            </table>
+            </div>
+        </div>
+ </div>
+{% endblock %}
